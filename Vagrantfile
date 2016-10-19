@@ -13,8 +13,9 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu16.04"
-  config.vm.box_url = "https://github.com/jose-lpa/packer-ubuntu_lts/releases/download/v3.0/ubuntu-16.04.box"
-  #  config.vm.provision :shell, :path => "bootstrap.sh", :privileged => true
+  # config.vm.box_url = "https://github.com/jose-lpa/packer-ubuntu_lts/releases/download/v3.0/ubuntu-16.04.box"
+  config.vm.box_url = "https://atlas.hashicorp.com/bento/boxes/ubuntu-16.04/versions/2.3.0/providers/virtualbox.box"
+  config.vm.provision :shell, :path => "bootstrap.sh", :privileged => true
   #  config.vm.network "forwarded_port", guest: 5900, host: 15900
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
