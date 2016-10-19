@@ -14,13 +14,14 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu16.04"
   config.vm.box_url = "https://github.com/jose-lpa/packer-ubuntu_lts/releases/download/v3.0/ubuntu-16.04.box"
-  config.vm.provision :shell, :path => "bootstrap.sh", :privileged => true
-#  config.vm.network "forwarded_port", guest: 5900, host: 15900
-#  config.vm.provider :virtualbox do |vb|
-#    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-#    vb.customize ["modifyvm", :id, "--memory", "1024"]
-#  end
-#  config.vm.synced_folder "sync", "/home/vagrant/sync", create:true, type:"rsync"
+  #  config.vm.provision :shell, :path => "bootstrap.sh", :privileged => true
+  #  config.vm.network "forwarded_port", guest: 5900, host: 15900
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+  #  config.vm.synced_folder "sync", "/home/vagrant/sync", create:true, type:"rsync"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
