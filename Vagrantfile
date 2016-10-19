@@ -14,6 +14,7 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu16.04"
   config.vm.box_url = "https://github.com/jose-lpa/packer-ubuntu_lts/releases/download/v3.0/ubuntu-16.04.box"
+  config.vm.network "forwarded_port", guest: 5900, host: 15900
   config.vm.provision :shell, :path => "bootstrap.sh", :privileged => true
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
