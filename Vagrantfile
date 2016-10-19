@@ -22,8 +22,6 @@ Vagrant.configure(2) do |config|
   end
   config.vm.synced_folder "sync", "/home/vagrant/sync", create:true, type:"rsync"
 
-
-
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
